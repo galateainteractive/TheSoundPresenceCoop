@@ -958,6 +958,36 @@
         let currentCompositionConfig = null;
         let currentSessionIndex = -1;
         const GLOBAL_GROOVES_FOLDER = 'grooves';
+        const RESUME_STORAGE_KEY = 'coop-resume-v1';
+
+        function saveResumeState(composition, sessionIndex) {
+            try {
+                sessionStorage.setItem(RESUME_STORAGE_KEY, JSON.stringify({ composition, sessionIndex }));
+            } catch (error) {
+                console.warn('Não foi possível salvar a composição aberta.', error);
+            }
+        }
+
+        function readResumeState() {
+            try {
+                const saved = JSON.parse(sessionStorage.getItem(RESUME_STORAGE_KEY));
+                if (saved && typeof saved.composition === 'string' &&
+                    Number.isInteger(saved.sessionIndex) && saved.sessionIndex >= 0) {
+                    return saved;
+                }
+            } catch (error) {
+                console.warn('Estado salvo inválido.', error);
+            }
+            return null;
+        }
+
+        function clearResumeState() {
+            try {
+                sessionStorage.removeItem(RESUME_STORAGE_KEY);
+            } catch (error) {
+                console.warn('Não foi possível limpar a composição salva.', error);
+            }
+        }
 
         function applyNavigationState(state) {
             const view = state && state.view ? state.view : 'menu';
@@ -969,6 +999,7 @@
 
             if (view === 'menu') {
                 stopAllAudio();
+                clearResumeState();
                 menuScreen.style.display = 'flex';
                 playerScreen.style.display = 'none';
             } else {
@@ -978,11 +1009,8 @@
         }
 
         function navigateBackToMenu() {
-            if (history.state && history.state.view === 'composition') {
-                history.back();
-            } else {
-                applyNavigationState({ view: 'menu' });
-            }
+            history.replaceState({ view: 'menu' }, '', window.location.href);
+            applyNavigationState({ view: 'menu' });
         }
 
         function toggleHelp() {
@@ -1065,8 +1093,6 @@
         }
 
         window.onload = async () => {
-            history.replaceState({ view: 'menu' }, '', window.location.href);
-
             try {
                 loadTexts();
             } catch (error) {
@@ -1120,7 +1146,15 @@
                     };
                     document.getElementById('comp-list').appendChild(card);
                 });
-            } catch (e) { console.error("Erro ao carregar catálogo."); }
+                const saved = readResumeState();
+                const composition = saved && musicas.find(m => m.pasta === saved.composition);
+                if (composition && await startApp(composition, saved.sessionIndex)) {
+                    history.replaceState({ view: 'composition', composition: composition.pasta }, '', window.location.href);
+                } else {
+                    clearResumeState();
+                    history.replaceState({ view: 'menu' }, '', window.location.href);
+                }
+            } catch (e) { console.error("Erro ao carregar catálogo.", e); }
         };
 
         function setZoomState(isEnabled) {
@@ -1138,7 +1172,7 @@
             }
         }
 
-        async function startApp(musica) {
+        async function startApp(musica, initialSessionIndex = 0) {
             document.getElementById('loading').style.display = 'flex';
             try {
                 stopAllAudio();
@@ -1161,7 +1195,9 @@
                 setupSessionNav(currentCompositionConfig.dashboardSessions);
 
                 if (currentCompositionConfig.dashboardSessions && currentCompositionConfig.dashboardSessions.length > 0) {
-                    await loadSession(0);
+                    const index = initialSessionIndex < currentCompositionConfig.dashboardSessions.length
+                        ? initialSessionIndex : 0;
+                    if (!await loadSession(index)) return false;
                 } else {
                     throw new Error("No blocks found in JSON.");
                 }
@@ -1203,7 +1239,7 @@
         }
 
         async function loadSession(index) {
-            if (currentSessionIndex === index) return;
+            if (currentSessionIndex === index) return true;
 
             document.getElementById('loading').style.display = 'flex';
             stopAllAudio();
@@ -1216,6 +1252,7 @@
             const session = currentCompositionConfig.dashboardSessions[index];
             const localFolder = currentCompositionConfig._rootFolder;
 
+            let loaded = false;
             try {
                 let fetchPath = "";
                 let displayLabel = "";
@@ -1307,13 +1344,17 @@
                 };
 
                 render();
+                saveResumeState(localFolder, index);
+                loaded = true;
 
             } catch (err) {
                 console.error(err);
                 alert("Block error: " + err.message);
+                currentSessionIndex = -1;
             }
 
             document.getElementById('loading').style.display = 'none';
+            return loaded;
         }
 
         // --- PLAYBACK ENGINE ---
