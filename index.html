@@ -66,6 +66,13 @@
             transition: 0.3s;
         }
 
+        .module-heading {
+            grid-column: 1 / -1;
+            margin: 20px 0 0;
+            text-align: left;
+            font-size: 16px;
+        }
+
             .comp-card:hover {
                 background: #fff;
                 color: #000;
@@ -1090,10 +1097,20 @@
             try {
                 const res = await fetch('composicoes.json');
                 const musicas = await res.json();
+                let currentModule = null;
                 musicas.forEach(m => {
+                    if (m.modulo && m.modulo !== currentModule) {
+                        const heading = document.createElement('h2');
+                        heading.className = 'module-heading';
+                        heading.textContent = m.modulo;
+                        document.getElementById('comp-list').appendChild(heading);
+                        currentModule = m.modulo;
+                    }
                     const card = document.createElement('div');
                     card.className = 'comp-card';
-                    card.innerHTML = `<h3>${m.nome}</h3><p style="font-size:9px; opacity:0.5">${m.pasta}</p>`;
+                    const title = document.createElement('h3');
+                    title.textContent = m.nome;
+                    card.appendChild(title);
                     card.onclick = async () => {
                         audioCtx.resume();
                         const didStart = await startApp(m);
@@ -1130,9 +1147,10 @@
                 const resJson = await fetch(`${musica.pasta}/settings.json`);
                 currentCompositionConfig = await resJson.json();
                 currentCompositionConfig._rootFolder = musica.pasta;
+                currentCompositionConfig._grooveFolder = musica.grooveFolder;
 
                 document.getElementById('playing-title').textContent =
-                    currentCompositionConfig.compositionName || musica.nome;
+                    musica.nome || currentCompositionConfig.compositionName;
 
                 // Reseta lista de desbloqueios ao abrir nova composição
                 unlockedSessions = new Set();
@@ -1203,7 +1221,7 @@
                 let displayLabel = "";
 
                 if (currentCompositionConfig.sourceGrooveSetName) {
-                    const setName = currentCompositionConfig.sourceGrooveSetName;
+                    const setName = currentCompositionConfig._grooveFolder || currentCompositionConfig.sourceGrooveSetName;
                     const idx = session.grooveIndex;
                     displayLabel = `${setName} [Var ${idx}]`;
                     fetchPath = `${GLOBAL_GROOVES_FOLDER}/${setName}/${idx}.wav`;

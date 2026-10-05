@@ -1,4 +1,22 @@
-QUANDO ATUALIZAR ALGUMA MUSICA, BASTA RODAR O "python atualizar_catalogo.py"
-PRA ATUALIZAR O SCRIPT COMPOSICOES E OS GROOVES
+Para atualizar o Coop depois de mudar o projeto Unity:
 
-python atualizar_catalogo.py
+    python atualizar_catalogo.py
+
+O script lê InterpreterLevelCatalog.asset, copia somente as composições visíveis
+de StreamingAssets/Compositions/_MODULES, copia os WAVs de Resources/Grooves
+na ordem de grooveClipNames (0.wav, 1.wav, etc.) e gera composicoes.json com
+a ordem, os módulos e os nomes exibidos no menu do Unity.
+
+O caminho padrão do projeto Unity é:
+    E:\Projetos Unity\VejaOSomGit\vejaosom
+
+Se estiver em outro lugar:
+    python atualizar_catalogo.py --unity-project "CAMINHO_DO_PROJETO"
+
+Para conferir se o Coop já está sincronizado sem modificar arquivos:
+    python atualizar_catalogo.py --check
+
+O script não apaga composições ou grooves antigos. Somente as composições
+visíveis no catálogo do Unity aparecem no menu do Coop. Ele também não
+modifica o projeto Unity. Após sincronizar, revise as alterações no Git e
+publique o Coop pelo fluxo normal do repositório.

@@ -1,70 +1,110 @@
 [
     {
-        "nome": "01_Basic_Rhythm",
-        "pasta": "musicas/01_Basic_Rhythm"
+        "nome": "Basic_Rhythm",
+        "pasta": "musicas/01_Basic_Rhythm",
+        "modulo": "Module1",
+        "grooveFolder": "HipHop152"
     },
     {
-        "nome": "02_Match",
-        "pasta": "musicas/02_Match"
+        "nome": "Match",
+        "pasta": "musicas/02_Match",
+        "modulo": "Module1",
+        "grooveFolder": "HipHop152"
     },
     {
-        "nome": "03_Oitavas",
-        "pasta": "musicas/03_Oitavas"
+        "nome": "Oitavas",
+        "pasta": "musicas/03_Oitavas",
+        "modulo": "Module1",
+        "grooveFolder": "HipHop152"
     },
     {
-        "nome": "04_Tercas_E_Quintas",
-        "pasta": "musicas/04_Tercas_E_Quintas"
+        "nome": "Tercas_E_Quintas",
+        "pasta": "musicas/04_Tercas_E_Quintas",
+        "modulo": "Module1",
+        "grooveFolder": "Trap153"
     },
     {
-        "nome": "05_Timbres",
-        "pasta": "musicas/05_Timbres"
+        "nome": "Timbres",
+        "pasta": "musicas/05_Timbres",
+        "modulo": "Module1",
+        "grooveFolder": "Trap153"
     },
     {
-        "nome": "06_Move_Your_Hand",
-        "pasta": "musicas/06_Move_Your_Hand"
+        "nome": "Not_An_Anacrusis",
+        "pasta": "musicas/18_This_Is_Not_An_Anacrusis_GreyLight130",
+        "modulo": "Module1",
+        "grooveFolder": "GreyLight"
     },
     {
-        "nome": "07_Glissando",
-        "pasta": "musicas/07_Glissando"
+        "nome": "Move_Your_Hand",
+        "pasta": "musicas/06_Move_Your_Hand",
+        "modulo": "Module1",
+        "grooveFolder": "ExoTrap63"
     },
     {
-        "nome": "08_Still_Glissando",
-        "pasta": "musicas/08_Still_Glissando"
+        "nome": "Glissando",
+        "pasta": "musicas/07_Glissando",
+        "modulo": "Module1",
+        "grooveFolder": "Dubstep75"
     },
     {
-        "nome": "09_Horizontal_Moves",
-        "pasta": "musicas/09_Horizontal_Moves"
+        "nome": "Still_Glissando",
+        "pasta": "musicas/08_Still_Glissando",
+        "modulo": "Module1",
+        "grooveFolder": "QEBRUS95"
     },
     {
-        "nome": "09_Sampler_Nate_Acoustic_TimbreOverride_1",
-        "pasta": "musicas/09_Sampler_Nate_Acoustic_TimbreOverride_1"
+        "nome": "Horizontal_Moves",
+        "pasta": "musicas/09_Horizontal_Moves",
+        "modulo": "Module1",
+        "grooveFolder": "LateNight"
     },
     {
-        "nome": "10_Move_Your_Body",
-        "pasta": "musicas/10_Move_Your_Body"
+        "nome": "Real_Thing",
+        "pasta": "musicas/09_Sampler_Nate_Acoustic_TimbreOverride_1",
+        "modulo": "Module1",
+        "grooveFolder": "Nate"
     },
     {
-        "nome": "11_Filtro_WholeTone_B_Bb",
-        "pasta": "musicas/11_Filtro_WholeTone_B_Bb"
+        "nome": "Move_Your_Body",
+        "pasta": "musicas/10_Move_Your_Body",
+        "modulo": "Module1",
+        "grooveFolder": "DrumBass"
     },
     {
-        "nome": "14_Dubstep_Stutter_StaticStages_v10_S2_NormalPatterns_2",
-        "pasta": "musicas/12_Dubstep_Stutter_StaticStages_v10_S2_NormalPatterns"
+        "nome": "Filter",
+        "pasta": "musicas/11_Filtro_WholeTone_B_Bb",
+        "modulo": "Module1",
+        "grooveFolder": "RawHop91"
     },
     {
-        "nome": "15_CrossOsc_Yaw_CSharp6_A69",
-        "pasta": "musicas/15_CrossOsc_Yaw_CSharp6_A69"
+        "nome": "Stutter",
+        "pasta": "musicas/12_Dubstep_Stutter_StaticStages_v10_S2_NormalPatterns",
+        "modulo": "Module1",
+        "grooveFolder": "DubstepStutter"
     },
     {
-        "nome": "16_DreamBreak86_DarkLocrian_v4_GrooveBass32",
-        "pasta": "musicas/16_DreamBreak86_DarkLocrian_v4_GrooveBass32"
+        "nome": "OscFeedback/CrossMod",
+        "pasta": "musicas/15_CrossOsc_Yaw_CSharp6_A69",
+        "modulo": "Module1",
+        "grooveFolder": "ForwardBreak"
     },
     {
-        "nome": "17_ManicAmen_Octatonic_v4_ReeseGroove32",
-        "pasta": "musicas/17_ManicAmen_Octatonic_v4_ReeseGroove32"
+        "nome": "NeoColor",
+        "pasta": "musicas/01_NeoSoul_ColorBreathing_HeadsetSnap_v4_SeparatedBassSpatialFix",
+        "modulo": "modulo2",
+        "grooveFolder": "ColorBreathing"
     },
     {
-        "nome": "TEST_Sampler_2Sessions_DelayAngles_GrooveSnapped_v03",
-        "pasta": "musicas/TEST_Sampler_2Sessions_DelayAngles_GrooveSnapped_v03"
+        "nome": "DreamBreak",
+        "pasta": "musicas/16_DreamBreak86_DarkLocrian_v4_GrooveBass32",
+        "modulo": "modulo2",
+        "grooveFolder": "DreamBreak86"
+    },
+    {
+        "nome": "ManicAmen",
+        "pasta": "musicas/19_ManicAmen_HeadsetSnap_v4_KickAlignedBass",
+        "modulo": "modulo2",
+        "grooveFolder": "ManicAmen"
     }
 ]
