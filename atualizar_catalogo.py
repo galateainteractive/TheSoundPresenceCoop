@@ -100,6 +100,9 @@ def build_plan(project):
     for module_folder, module_display, level in selected:
         folder = level["folderName"]
         source = source_root / module_folder / folder
+        if not source.is_dir():
+            print(f"Aviso: composição selecionada ausente no Unity: {source}", file=sys.stderr)
+            continue
         settings_path = source / "settings.json"
         settings = json.loads(settings_path.read_text(encoding="utf-8-sig"))
         clips = settings.get("grooveClipNames")
@@ -145,14 +148,32 @@ def main():
     catalog_path = COOP_ROOT / "composicoes.json"
     changed = [dst for dst, src in files.items() if not dst.exists() or not filecmp.cmp(src, dst, shallow=False)]
     catalog_changed = not catalog_path.exists() or catalog_path.read_bytes() != catalog_bytes
+    previous = json.loads(catalog_path.read_text(encoding="utf-8")) if catalog_path.exists() else []
+    current_folders = {entry["pasta"] for entry in json.loads(catalog_bytes)}
+    stale_folders = []
+    music_root = (COOP_ROOT / "musicas").resolve()
+    for entry in previous:
+        folder = Path(entry["pasta"])
+        if len(folder.parts) != 2 or folder.parts[0] != "musicas":
+            raise ValueError(f"Pasta inválida no catálogo anterior: {folder}")
+        if entry["pasta"] in current_folders:
+            continue
+        destination = COOP_ROOT / folder
+        if destination.is_symlink() or destination.resolve().parent != music_root:
+            raise ValueError(f"Pasta fora de músicas: {destination}")
+        if destination.is_dir():
+            stale_folders.append(destination)
     print(f"Selecionadas: {composition_count} composições; {groove_count} variações de groove")
     print(f"Atualizar/copiar: {len(changed)} arquivos; catálogo: {'sim' if catalog_changed else 'não'}")
+    print(f"Remover: {len(stale_folders)} pastas")
     if args.check:
-        return int(bool(changed or catalog_changed))
+        return int(bool(changed or stale_folders or catalog_changed))
 
     for destination in changed:
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(files[destination], destination)
+    for destination in stale_folders:
+        shutil.rmtree(destination)
     if catalog_changed:
         catalog_path.write_bytes(catalog_bytes)
     return 0
