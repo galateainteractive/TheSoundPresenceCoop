@@ -30,16 +30,16 @@
         "grooveFolder": "Trap153"
     },
     {
-        "nome": "Not_An_Anacrusis",
-        "pasta": "musicas/18_This_Is_Not_An_Anacrusis_GreyLight130",
-        "modulo": "Module1",
-        "grooveFolder": "GreyLight"
-    },
-    {
         "nome": "Move_Your_Hand",
         "pasta": "musicas/06_Move_Your_Hand",
         "modulo": "Module1",
         "grooveFolder": "ExoTrap63"
+    },
+    {
+        "nome": "Not_An_Anacrusis",
+        "pasta": "musicas/18_This_Is_Not_An_Anacrusis_GreyLight130",
+        "modulo": "Module1",
+        "grooveFolder": "GreyLight"
     },
     {
         "nome": "Glissando",
@@ -67,13 +67,13 @@
     },
     {
         "nome": "Move_Your_Body",
-        "pasta": "musicas/10_Move_Your_Body",
+        "pasta": "musicas/10_Move_Your_Body_v2_DistinctGlissReachableHigh",
         "modulo": "Module1",
         "grooveFolder": "DrumBass"
     },
     {
         "nome": "Filter",
-        "pasta": "musicas/11_Filtro_WholeTone_B_Bb",
+        "pasta": "musicas/11_Filtro_WholeTone_B_Bb_1",
         "modulo": "Module1",
         "grooveFolder": "RawHop91"
     },
@@ -90,10 +90,16 @@
         "grooveFolder": "ForwardBreak"
     },
     {
-        "nome": "NeoColor",
-        "pasta": "musicas/01_NeoSoul_ColorBreathing_HeadsetSnap_v4_SeparatedBassSpatialFix",
-        "modulo": "modulo2",
-        "grooveFolder": "ColorBreathing"
+        "nome": "Delay",
+        "pasta": "musicas/TEST_Sampler_2Sessions_DelayAngles_GrooveSnapped_v03",
+        "modulo": "Module1",
+        "grooveFolder": "DeepDubDelay"
+    },
+    {
+        "nome": "17_ManicAmen_v5B_FocusedPalette32_HighAccent",
+        "pasta": "musicas/17_ManicAmen_v5B_FocusedPalette32_HighAccent",
+        "modulo": "Module1",
+        "grooveFolder": "ManicAmen"
     },
     {
         "nome": "DreamBreak",
@@ -106,5 +112,11 @@
         "pasta": "musicas/19_ManicAmen_HeadsetSnap_v4_KickAlignedBass",
         "modulo": "modulo2",
         "grooveFolder": "ManicAmen"
+    },
+    {
+        "nome": "NeoColor",
+        "pasta": "musicas/01_NeoSoul_ColorBreathing_HeadsetSnap_v6_AccordionOctaveDown",
+        "modulo": "modulo2",
+        "grooveFolder": "ColorBreathing"
     }
 ]
