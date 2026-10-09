@@ -44,7 +44,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: min(540px, 90vw);
+            width: min(620px, 90vw);
             margin: 0;
         }
 
@@ -52,26 +52,25 @@
             position: relative;
             display: block;
             width: 100%;
-            aspect-ratio: 2.5;
+            aspect-ratio: 1.9;
             overflow: hidden;
         }
 
         .menu-logo img {
             position: absolute;
-            top: 50%;
+            top: 44%;
             left: 50%;
-            width: 126%;
+            width: 100%;
             max-width: none;
             height: auto;
             transform: translate(-50%, -50%);
-            filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.75));
         }
 
         .menu-subtitle {
-            margin-top: 6px;
-            font-size: 14px;
-            font-weight: 400;
-            letter-spacing: 0.5em;
+            margin-top: 4px;
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 600;
+            letter-spacing: 0.4em;
         }
 
         #player-screen {
@@ -859,7 +858,7 @@
 
     <div id="menu-screen">
         <h1 class="menu-title">
-            <span class="menu-logo"><img src="the-sound-presence-logo.png" alt="The Sound Presence"></span>
+            <span class="menu-logo"><img src="the-sound-presence-logo.png?v=2" alt="The Sound Presence"></span>
             <span class="menu-subtitle">COOP</span>
         </h1>
         <div id="comp-list" class="comp-list"></div>
