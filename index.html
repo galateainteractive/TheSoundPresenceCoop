@@ -1219,6 +1219,7 @@
                 currentCompositionConfig = await resJson.json();
                 currentCompositionConfig._rootFolder = musica.pasta;
                 currentCompositionConfig._grooveFolder = musica.grooveFolder;
+                currentCompositionConfig._coopCodePath = musica.coopCodePath;
 
                 document.getElementById('playing-title').textContent =
                     musica.nome || currentCompositionConfig.compositionName;
@@ -1487,8 +1488,17 @@
             }
 
             // Pega as mixagens guardadas e garante que não tem nenhuma vazia
-            const validBuffers = bouncedSessionsBuffers.filter(b => b != null);
-            if (validBuffers.length === 0) return;
+            const totalSessions = currentCompositionConfig.dashboardSessions.length;
+            if (bouncedSessionsBuffers.length !== totalSessions ||
+                bouncedSessionsBuffers.some(b => !b)) {
+                isPlayingFull = false;
+                if (fsBtn) {
+                    fsBtn.textContent = "[ PLAY FULL SEQUENCE ]";
+                    fsBtn.classList.remove('active-full');
+                }
+                return;
+            }
+            const validBuffers = bouncedSessionsBuffers;
 
             // Cola tudo em uma faixa contínua instantaneamente
             const finalMasterBuffer = concatAudioBuffers(validBuffers);
@@ -1803,16 +1813,13 @@
             const masterContainer = document.createElement('div');
             masterContainer.className = 'master-track-container';
 
-            // 1. Gera o código esperado para ESSA sessão específica
-            // Tenta pegar do config, ou usa o título da tela como fallback
-            const compName = (currentCompositionConfig && currentCompositionConfig.compositionName)
-                ? currentCompositionConfig.compositionName
-                : document.getElementById('playing-title').textContent;
-
-            const expectedCode = generateCoopCode(compName, currentSessionIndex);
-
-            // Debug no console pra você testar fácil no navegador
-            console.log(`[COOP] Sessão ${currentSessionIndex} (${compName}) -> Código Esperado: ${expectedCode}`);
+            // O Unity usa o caminho relativo em compositionName. Path.Combine produz
+            // "/" no Android e "\" no Windows; aceitamos os códigos de ambos.
+            const codePath = currentCompositionConfig._coopCodePath;
+            const sessionId = currentCompositionConfig.dashboardSessions[currentSessionIndex].sessionId;
+            const expectedCodes = codePath
+                ? [codePath, codePath.replaceAll('/', '\\')].map(path => generateCoopCode(path, sessionId))
+                : [generateCoopCode(currentCompositionConfig.compositionName, sessionId)];
 
             if (!unlockedSessions.has(currentSessionIndex)) {
                 masterContainer.innerHTML = `
@@ -1825,12 +1832,18 @@
 
                 const input = masterContainer.querySelector('input');
 
-                // Lógica de verificação atualizada
-                input.oninput = (e) => {
-                    if (e.target.value === expectedCode) {
-                        unlockedSessions.add(currentSessionIndex);
-                        bounceCurrentSession(currentSessionIndex);
-                        render(); // Redesenha para mostrar desbloqueado
+                input.oninput = async (e) => {
+                    if (!expectedCodes.includes(e.target.value.trim())) return;
+                    const index = currentSessionIndex;
+                    input.disabled = true;
+                    try {
+                        await bounceCurrentSession(index);
+                        unlockedSessions.add(index);
+                        render();
+                    } catch (error) {
+                        console.error('Erro ao montar o bloco completo.', error);
+                        input.disabled = false;
+                        alert('Não foi possível montar o bloco completo: ' + error.message);
                     }
                 };
             } else {

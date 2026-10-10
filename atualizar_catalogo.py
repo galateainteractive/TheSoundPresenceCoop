@@ -131,7 +131,7 @@ def build_plan(project):
             if previous and previous != matches[0]:
                 raise ValueError(f"Variação conflitante para {destination}")
             groove_files[destination] = matches[0]
-        catalog.append({"nome": level["displayName"], "pasta": f"musicas/{folder}", "modulo": module_display, "grooveFolder": groove_folder})
+        catalog.append({"nome": level["displayName"], "pasta": f"musicas/{folder}", "modulo": module_display, "grooveFolder": groove_folder, "coopCodePath": f"_MODULES/{module_folder}/{folder}"})
 
     files.update(groove_files)
     catalog_bytes = (json.dumps(catalog, ensure_ascii=False, indent=4) + "\n").encode("utf-8")
