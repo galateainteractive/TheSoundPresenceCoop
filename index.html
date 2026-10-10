@@ -185,6 +185,11 @@
             min-width: 90px;
         }
 
+        .scope-graph {
+            flex: 3;
+            min-width: 200px;
+        }
+
         input[type=range] {
             width: 100%;
             height: 20px;
@@ -442,6 +447,7 @@
         #liveScope {
             width: 100%;
             height: 80px;
+            box-sizing: border-box;
             border: 1px solid #555;
             background: #000;
             cursor: grab;
@@ -640,10 +646,6 @@
                 height: 80px !important;
             }
 
-            #liveScope {
-                height: 60px !important;
-            }
-
             .groove-toolbar {
                 margin-top: 5px;
                 padding-top: 5px;
@@ -662,6 +664,27 @@
                 padding: 8px;
             }
         }
+        /* Em celulares, os controles ficam em cima e o gráfico ocupa a linha inteira. */
+        @media (max-width: 767px), (pointer: coarse) {
+            .scope-controls {
+                align-items: flex-start;
+            }
+
+            .scope-controls > .control-group:not(.scope-graph) {
+                flex: 1 1 0;
+                min-width: 0;
+            }
+
+            .scope-controls > .scope-graph {
+                flex: 0 0 100%;
+                min-width: 0;
+            }
+
+            #liveScope {
+                height: clamp(96px, 14vh, 120px);
+            }
+        }
+
         /* --- SESSIONS NAV (Botões de Sessão) --- */
         .session-nav {
             display: flex;
@@ -891,7 +914,7 @@
                         <span id="zoomWarning" class="zoom-warning">[ PAUSE TO ZOOM ]</span>
                     </div>
 
-                    <div class="control-group" style="flex: 3; min-width: 200px;">
+                    <div class="control-group scope-graph">
                         <canvas id="liveScope" height="120"></canvas>
                     </div>
                 </div>
@@ -1144,7 +1167,7 @@
                 const delta = x - lastMouseX;
                 scopeOffset += delta;
                 if (scopeOffset > 0) scopeOffset = 0;
-                const w = cvs.width;
+                const w = cvs.clientWidth;
                 const totalWidth = w * scopeZoom;
                 const minOffset = -(totalWidth - w);
                 if (scopeOffset < minOffset) scopeOffset = minOffset;
@@ -1960,9 +1983,17 @@
 
             // --- OSCILOSCÓPIO ---
             const cvs = document.getElementById('liveScope');
+            const w = cvs.clientWidth;
+            const h = cvs.clientHeight;
+            const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+            const pixelWidth = Math.round(w * pixelRatio);
+            const pixelHeight = Math.round(h * pixelRatio);
+            if (cvs.width !== pixelWidth || cvs.height !== pixelHeight) {
+                cvs.width = pixelWidth;
+                cvs.height = pixelHeight;
+            }
             const sCtx = cvs.getContext('2d');
-            const w = 800;
-            const h = cvs.height;
+            sCtx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
             const dataArr = new Uint8Array(analyser.frequencyBinCount);
 
