@@ -1217,7 +1217,7 @@
             cvs.addEventListener('touchmove', (e) => { e.preventDefault(); handleMove(e.touches[0].clientX); });
 
             try {
-                const res = await fetch('composicoes.json');
+                const res = await fetch('composicoes.json?updated=' + Date.now(), { cache: 'no-store' });
                 const musicas = await res.json();
                 let currentModule = null;
                 musicas.forEach(m => {
