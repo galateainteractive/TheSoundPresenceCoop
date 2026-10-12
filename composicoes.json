@@ -1,6 +1,6 @@
 [
     {
-        "nome": "Basic_Rhythm",
+        "nome": "Basic Rhythm",
         "pasta": "musicas/01_Basic_Rhythm",
         "modulo": "Module1",
         "grooveFolder": "HipHop152",
@@ -14,35 +14,35 @@
         "coopCodePath": "_MODULES/Module1/02_Match"
     },
     {
-        "nome": "Oitavas",
+        "nome": "Octaves",
         "pasta": "musicas/03_Oitavas",
         "modulo": "Module1",
         "grooveFolder": "HipHop152",
         "coopCodePath": "_MODULES/Module1/03_Oitavas"
     },
     {
-        "nome": "Tercas_E_Quintas",
+        "nome": "Thirds and Fifths",
         "pasta": "musicas/04_Tercas_E_Quintas",
         "modulo": "Module1",
         "grooveFolder": "Trap153",
         "coopCodePath": "_MODULES/Module1/04_Tercas_E_Quintas"
     },
     {
-        "nome": "Timbres",
+        "nome": "Timbre",
         "pasta": "musicas/05_Timbres",
         "modulo": "Module1",
         "grooveFolder": "Trap153",
         "coopCodePath": "_MODULES/Module1/05_Timbres"
     },
     {
-        "nome": "Move_Your_Hand",
+        "nome": "Move You Hand",
         "pasta": "musicas/06_Move_Your_Hand",
         "modulo": "Module1",
         "grooveFolder": "ExoTrap63",
         "coopCodePath": "_MODULES/Module1/06_Move_Your_Hand"
     },
     {
-        "nome": "Not_An_Anacrusis",
+        "nome": "Not An Anacrusis",
         "pasta": "musicas/18_This_Is_Not_An_Anacrusis_GreyLight130",
         "modulo": "Module1",
         "grooveFolder": "GreyLight",
@@ -56,28 +56,28 @@
         "coopCodePath": "_MODULES/Module1/07_Glissando"
     },
     {
-        "nome": "Still_Glissando",
+        "nome": "Still Glissando",
         "pasta": "musicas/08_Still_Glissando",
         "modulo": "Module1",
         "grooveFolder": "QEBRUS95",
         "coopCodePath": "_MODULES/Module1/08_Still_Glissando"
     },
     {
-        "nome": "Horizontal_Moves",
+        "nome": "Horizontal Moves",
         "pasta": "musicas/09_Horizontal_Moves",
         "modulo": "Module1",
         "grooveFolder": "LateNight",
         "coopCodePath": "_MODULES/Module1/09_Horizontal_Moves"
     },
     {
-        "nome": "Real_Thing",
+        "nome": "Real Thing",
         "pasta": "musicas/09_Sampler_Nate_Acoustic_TimbreOverride_1",
         "modulo": "Module1",
         "grooveFolder": "Nate",
         "coopCodePath": "_MODULES/Module1/09_Sampler_Nate_Acoustic_TimbreOverride_1"
     },
     {
-        "nome": "Move_Your_Body",
+        "nome": "Move Your Body",
         "pasta": "musicas/10_Move_Your_Body_v2_DistinctGlissReachableHigh",
         "modulo": "Module1",
         "grooveFolder": "DrumBass",

@@ -77,9 +77,12 @@
         .headphones-note {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-end;
             gap: 8px;
-            margin: 14px 0 0;
+            width: min(620px, 90vw);
+            box-sizing: border-box;
+            padding-right: 12px;
+            margin: 26px 0 0;
             color: #ddd;
             font-size: 11px;
             font-weight: 500;
@@ -909,7 +912,7 @@
             <span class="menu-subtitle">CO-OP</span>
         </h1>
         <p class="headphones-note">
-            <span>USE</span>
+            <span>BETTER WITH</span>
             <svg viewBox="0 0 24 24" role="img" aria-labelledby="headphones-title">
                 <title id="headphones-title">Headphones</title>
                 <path d="M3.5 13v-1a8.5 8.5 0 0 1 17 0v1" />
