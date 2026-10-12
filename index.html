@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>The Sound Presence Coop</title>
+    <title>The Sound Presence CO-OP</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,10 +67,34 @@
         }
 
         .menu-subtitle {
-            margin-top: 1px;
+            position: relative;
+            margin-top: -16px;
             font-size: clamp(28px, 4vw, 42px);
             font-weight: 600;
             letter-spacing: 0.4em;
+        }
+
+        .headphones-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin: 14px 0 0;
+            color: #ddd;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.24em;
+        }
+
+        .headphones-note svg {
+            width: 22px;
+            height: 22px;
+            flex: none;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.7;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         #player-screen {
@@ -882,8 +906,17 @@
     <div id="menu-screen">
         <h1 class="menu-title">
             <span class="menu-logo"><img src="the-sound-presence-logo.png?v=2" alt="The Sound Presence"></span>
-            <span class="menu-subtitle">COOP</span>
+            <span class="menu-subtitle">CO-OP</span>
         </h1>
+        <p class="headphones-note">
+            <span>USE</span>
+            <svg viewBox="0 0 24 24" role="img" aria-labelledby="headphones-title">
+                <title id="headphones-title">Headphones</title>
+                <path d="M3.5 13v-1a8.5 8.5 0 0 1 17 0v1" />
+                <rect x="3" y="12" width="4" height="8" rx="2" />
+                <rect x="17" y="12" width="4" height="8" rx="2" />
+            </svg>
+        </p>
         <div id="comp-list" class="comp-list"></div>
     </div>
 
