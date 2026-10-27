@@ -1,134 +1,134 @@
 [
     {
-        "nome": "Basic Rhythm",
+        "nome": "1.Basic Rhythm",
         "pasta": "musicas/01_Basic_Rhythm",
-        "modulo": "Module1",
+        "modulo": "Levels",
         "grooveFolder": "HipHop152",
         "coopCodePath": "_MODULES/Module1/01_Basic_Rhythm"
     },
     {
-        "nome": "Match",
+        "nome": "2.Match",
         "pasta": "musicas/02_Match",
-        "modulo": "Module1",
+        "modulo": "Levels",
         "grooveFolder": "HipHop152",
         "coopCodePath": "_MODULES/Module1/02_Match"
     },
     {
-        "nome": "Octaves",
+        "nome": "3.Octaves",
         "pasta": "musicas/03_Oitavas",
-        "modulo": "Module1",
+        "modulo": "Levels",
         "grooveFolder": "HipHop152",
         "coopCodePath": "_MODULES/Module1/03_Oitavas"
     },
     {
-        "nome": "Thirds and Fifths",
+        "nome": "4.Thirds and Fifths",
         "pasta": "musicas/04_Tercas_E_Quintas",
-        "modulo": "Module1",
+        "modulo": "Levels",
         "grooveFolder": "Trap153",
         "coopCodePath": "_MODULES/Module1/04_Tercas_E_Quintas"
     },
     {
-        "nome": "Timbre",
+        "nome": "5.Timbre",
         "pasta": "musicas/05_Timbres",
-        "modulo": "Module1",
+        "modulo": "Levels",
         "grooveFolder": "Trap153",
         "coopCodePath": "_MODULES/Module1/05_Timbres"
     },
     {
-        "nome": "Move You Hand",
+        "nome": "6.Move You Hand",
         "pasta": "musicas/06_Move_Your_Hand",
-        "modulo": "Module1",
+        "modulo": "Levels",
         "grooveFolder": "ExoTrap63",
         "coopCodePath": "_MODULES/Module1/06_Move_Your_Hand"
     },
     {
-        "nome": "Not An Anacrusis",
+        "nome": "7.Not An Anacrusis",
         "pasta": "musicas/18_This_Is_Not_An_Anacrusis_GreyLight130",
-        "modulo": "Module1",
+        "modulo": "Levels",
         "grooveFolder": "GreyLight",
         "coopCodePath": "_MODULES/Module1/18_This_Is_Not_An_Anacrusis_GreyLight130"
     },
     {
-        "nome": "Glissando",
+        "nome": "8.Glissando",
         "pasta": "musicas/07_Glissando",
-        "modulo": "Module1",
+        "modulo": "Levels",
         "grooveFolder": "Dubstep75",
         "coopCodePath": "_MODULES/Module1/07_Glissando"
     },
     {
-        "nome": "Still Glissando",
+        "nome": "9.Still Glissando",
         "pasta": "musicas/08_Still_Glissando",
-        "modulo": "Module1",
+        "modulo": "Levels",
         "grooveFolder": "QEBRUS95",
         "coopCodePath": "_MODULES/Module1/08_Still_Glissando"
     },
     {
-        "nome": "Horizontal Moves",
+        "nome": "10.Horizontal Moves",
         "pasta": "musicas/09_Horizontal_Moves",
-        "modulo": "Module1",
+        "modulo": "Levels",
         "grooveFolder": "LateNight",
         "coopCodePath": "_MODULES/Module1/09_Horizontal_Moves"
     },
     {
-        "nome": "Real Thing",
+        "nome": "11.Real Thing",
         "pasta": "musicas/09_Sampler_Nate_Acoustic_TimbreOverride_1",
-        "modulo": "Module1",
+        "modulo": "Levels",
         "grooveFolder": "Nate",
         "coopCodePath": "_MODULES/Module1/09_Sampler_Nate_Acoustic_TimbreOverride_1"
     },
     {
-        "nome": "Move Your Body",
+        "nome": "12.Move Your Body",
         "pasta": "musicas/10_Move_Your_Body_v2_DistinctGlissReachableHigh",
-        "modulo": "Module1",
+        "modulo": "Levels",
         "grooveFolder": "DrumBass",
         "coopCodePath": "_MODULES/Module1/10_Move_Your_Body_v2_DistinctGlissReachableHigh"
     },
     {
-        "nome": "Filter",
+        "nome": "13.Filter",
         "pasta": "musicas/11_Filtro_WholeTone_B_Bb_1",
-        "modulo": "Module1",
+        "modulo": "Levels",
         "grooveFolder": "RawHop91",
         "coopCodePath": "_MODULES/Module1/11_Filtro_WholeTone_B_Bb_1"
     },
     {
-        "nome": "Stutter",
+        "nome": "14.Stutter",
         "pasta": "musicas/12_Dubstep_Stutter_StaticStages_v10_S2_NormalPatterns",
-        "modulo": "Module1",
+        "modulo": "Levels",
         "grooveFolder": "DubstepStutter",
         "coopCodePath": "_MODULES/Module1/12_Dubstep_Stutter_StaticStages_v10_S2_NormalPatterns"
     },
     {
-        "nome": "OscFeedback/CrossMod",
+        "nome": "15.OscFeedback/CrossMod",
         "pasta": "musicas/15_CrossOsc_Yaw_CSharp6_A69",
-        "modulo": "Module1",
+        "modulo": "Levels",
         "grooveFolder": "ForwardBreak",
         "coopCodePath": "_MODULES/Module1/15_CrossOsc_Yaw_CSharp6_A69"
     },
     {
-        "nome": "Delay",
+        "nome": "16.Delay",
         "pasta": "musicas/TEST_Sampler_2Sessions_DelayAngles_GrooveSnapped_v03",
-        "modulo": "Module1",
+        "modulo": "Levels",
         "grooveFolder": "DeepDubDelay",
         "coopCodePath": "_MODULES/Module1/TEST_Sampler_2Sessions_DelayAngles_GrooveSnapped_v03"
     },
     {
         "nome": "DreamBreak",
         "pasta": "musicas/16_DreamBreak86_DarkLocrian_v4_GrooveBass32",
-        "modulo": "modulo2",
+        "modulo": "Bonus",
         "grooveFolder": "DreamBreak86",
         "coopCodePath": "_MODULES/modulo2/16_DreamBreak86_DarkLocrian_v4_GrooveBass32"
     },
     {
         "nome": "ManicAmen",
         "pasta": "musicas/19_ManicAmen_HeadsetSnap_v4_KickAlignedBass",
-        "modulo": "modulo2",
+        "modulo": "Bonus",
         "grooveFolder": "ManicAmen",
         "coopCodePath": "_MODULES/modulo2/19_ManicAmen_HeadsetSnap_v4_KickAlignedBass"
     },
     {
         "nome": "NeoColor",
         "pasta": "musicas/01_NeoSoul_ColorBreathing_HeadsetSnap_v6_AccordionOctaveDown",
-        "modulo": "modulo2",
+        "modulo": "Bonus",
         "grooveFolder": "ColorBreathing",
         "coopCodePath": "_MODULES/modulo2/01_NeoSoul_ColorBreathing_HeadsetSnap_v6_AccordionOctaveDown"
     }
